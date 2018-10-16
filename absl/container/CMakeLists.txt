@@ -174,3 +174,14 @@ absl_test(
   PUBLIC_LIBRARIES
     absl::base absl::hash absl_throw_delegate test_instance_tracker_lib
 )
+
+absl_test(
+  TARGET
+    inlined_vector_benchmark
+  SOURCES
+    "inlined_vector_benchmark.cc"
+  PUBLIC_LIBRARIES
+    absl::base absl::hash absl_throw_delegate test_instance_tracker_lib benchmark_main
+  PRIVATE_COMPILE_FLAGS
+  -I/home/luoxhu/local/include
+)

@@ -76,11 +76,13 @@ if(${ABSL_RUN_TESTS})
   enable_testing()
 endif()
 
+option(BENCHMARK_ENABLE_GTEST_TESTS "BENCHMARK_ENABLE_GTEST_TESTS " OFF)
 ## check targets
 if(BUILD_TESTING)
 
   if(${ABSL_USE_GOOGLETEST_HEAD})
     include(CMake/DownloadGTest.cmake)
+    include(CMake/DownloadGBenchmark.cmake)
   endif()
 
   check_target(gtest)
@@ -91,6 +93,8 @@ if(BUILD_TESTING)
     gtest_main
     gtest
     gmock
+    benchmark_main
+    benchmark
     ${CMAKE_THREAD_LIBS_INIT}
   )
 endif()
